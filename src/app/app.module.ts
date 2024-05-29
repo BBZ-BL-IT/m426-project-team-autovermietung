@@ -7,11 +7,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +22,9 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     MatButtonModule
     
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
