@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  displayedColumns: string[] = ['brand', 'model', 'engine_power', 'mileage', 'color', 'rental_prize'];
+  name : string = "";
 }
