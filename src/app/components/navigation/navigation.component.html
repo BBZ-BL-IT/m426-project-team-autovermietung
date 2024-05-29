@@ -1,1 +1,33 @@
-<p>navigation works!</p>
+<mat-toolbar>
+    <span class="navbar-title">
+        <mat-icon>airport_shuttle</mat-icon>
+        <span class="title">Autovermietung</span>
+      </span>
+      <span class="navbar-nav">
+        <a mat-button routerLink="/">Home</a>
+        <a mat-button routerLink="/autos">Autos</a>
+        <a mat-button routerLink="/history">History</a>
+      </span>
+      <span class="navbar-login">
+        <!--
+        <div *ngIf="isLoggedIn(); else loginTemplate">
+            <button mat-button [matMenuTriggerFor]="menu">
+              <mat-icon>account_circle</mat-icon>
+              {{ username | uppercase}}
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="logout()">
+                <mat-icon>logout</mat-icon>
+                <span>Logout</span>
+              </button>
+            </mat-menu>
+          </div>
+          <ng-template #loginTemplate>
+            
+            comment -- <a mat-button routerLink="/login">Login</a> -- comment 
+
+            <button mat-button (click)="login()">Login</button>
+          </ng-template>
+        -->
+      </span>
+</mat-toolbar>
