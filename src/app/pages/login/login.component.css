@@ -1,0 +1,14 @@
+
+.Components{
+    margin-top: 50px;
+    display: grid;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+}
+
+.Components div{
+    margin-top: 50px;
+    display: grid;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+}

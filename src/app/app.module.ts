@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Input, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +8,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
+import { MatOption } from '@angular/material/core';
+import { MatSelect } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -19,8 +25,15 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     BrowserModule,
     AppRoutingModule,
     MatTableModule,
-    MatButtonModule
-  
+    MatButtonModule,
+    MatFormField,
+    MatLabel,
+    MatOption,
+    MatHint,
+    MatSelect,
+    FormsModule,
+    MatInputModule
+
     
   ],
   providers: [
