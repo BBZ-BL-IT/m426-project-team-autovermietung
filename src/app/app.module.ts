@@ -16,6 +16,7 @@ import { MatOption } from '@angular/material/core';
 import { MatSelect } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule} from '@angular/material/input';
+import { VehicleDatailComponent } from './pages/vehicle-datail/vehicle-datail.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MatInputModule} from '@angular/material/input';
     AppComponent,
     LoginComponent,
     NavigationComponent,
-    HomeComponent
+    HomeComponent,
+    VehicleDatailComponent
   ],
   imports: [
     BrowserModule,
