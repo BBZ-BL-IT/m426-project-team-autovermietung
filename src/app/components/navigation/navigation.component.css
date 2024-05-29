@@ -1,13 +1,18 @@
 
 div{
     background-color: black;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 .mat-toolbar {
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    background-color:black;}
+    background-color:black;
+}
   
   .navbar-title {
     display: flex;
