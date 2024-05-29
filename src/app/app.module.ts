@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule, getMatIconNameNotFoundError } from '@angular/material/icon';
 import { HomeComponent } from './pages/home/home.component';
 import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
 import { MatOption } from '@angular/material/core';
@@ -38,7 +38,8 @@ import { MatInputModule} from '@angular/material/input';
     MatHint,
     MatSelect,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+
 
     
   ],
