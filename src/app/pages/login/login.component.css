@@ -16,3 +16,8 @@ body{
     width: 1200px;
     margin: 0 auto;
 }
+.buffer{
+    width: 1200px;
+    margin: 0 auto;
+    height: 100px;
+}
