@@ -14,11 +14,15 @@ const routes: Routes = [
     path: "login", component: LoginComponent, pathMatch: "full"
   },
   {
-    path: "autos", component: VehicleComponent, pathMatch: "full"
+    path: "cars", component: VehicleComponent, pathMatch: "full"
   },
   {
-    path: "edit-vehicle/:id", component: VehicleDatailComponent
-  }
+    path: "car", component: VehicleDatailComponent, pathMatch: "full"
+  },
+  {
+    path: "car/:id", component: VehicleDatailComponent, pathMatch: "full"
+  },
+
 ];
 
 @NgModule({

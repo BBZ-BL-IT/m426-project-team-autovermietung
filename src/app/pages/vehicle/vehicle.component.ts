@@ -3,6 +3,9 @@ import { VehicleTest } from '../../data/vehicle_test';
 import { Router } from '@angular/router';
 import { Vehicle } from '../../data/vehicle';
 import { VehicleService } from '../../services/vehicle.service';
+import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { async } from 'rxjs';
 
 @Component({
   selector: 'app-vehicle',
@@ -11,17 +14,27 @@ import { VehicleService } from '../../services/vehicle.service';
 })
 export class VehicleComponent {
 
-  constructor(private vehicleService: VehicleService, private router: Router){
+  constructor(private vehicleService: VehicleService, private router: Router, private dialog: MatDialog) {
     this.reloadData();
   }
 
   displayedColumns: string[] = ['brand', 'model', 'engine_power', 'mileage', 'color', 'rental_price', 'actions'];
   name : string = "";
-  
+
   data : Vehicle[] = []
 
   async edit(e: Vehicle){
-    await this.router.navigate(['edit-vehicle', e.id]);
+    await this.router.navigate(['car', e.id]);
+  }
+
+  async add(){
+    await this.router.navigate(['car']);
+  }
+  delete(e: Vehicle) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: '400px',
+
+    });
   }
 
   reloadData(){
@@ -29,6 +42,9 @@ export class VehicleComponent {
       this.data = fahrzeug;
     });
   }
+
+
+
 
 
 }
