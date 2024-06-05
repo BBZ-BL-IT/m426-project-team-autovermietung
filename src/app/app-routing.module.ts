@@ -17,7 +17,7 @@ const routes: Routes = [
     path: "autos", component: VehicleComponent, pathMatch: "full"
   },
   {
-    path: "edit-vehicle/:id", component: VehicleDatailComponent, pathMatch: "full"
+    path: "edit-vehicle/:id", component: VehicleDatailComponent
   }
 ];
 

@@ -63,7 +63,7 @@ export class VehicleComponent {
   data : VehicleTest[] = [this.vehicle1, this.vehicle2, this.vehicle3]
 
   async edit(e: Vehicle){
-    await this.router.navigate(['fahrzeugdetail', e.id]);
+    await this.router.navigate(['edit-vehicle', e.id]);
   }
 
 }

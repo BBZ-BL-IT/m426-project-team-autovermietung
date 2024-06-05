@@ -39,10 +39,10 @@
           <ng-container matColumnDef="actions">
             <th *matHeaderCellDef class="listButtons" mat-header-cell></th>
             <td *matCellDef="let element" mat-cell >
-              <button   color="primary" mat-button>
+              <button  (click)="edit(element)" color="primary" mat-button>
                 <mat-icon>edit</mat-icon>
               </button>
-              <button  (click)="edit(element)" color="warn" mat-button>
+              <button  color="warn" mat-button>
                 <mat-icon>delete</mat-icon>
               </button>
             </td>
