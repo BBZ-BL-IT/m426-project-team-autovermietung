@@ -8,7 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "backend": "cd backend && ./mvnw spring-boot:run",
-    "dev": "concurrently \"npm run backend\" \"npm run start\""
+    "backend-win": "cd backend && .\\mvnw.cmd spring-boot:run",
+    "dev": "concurrently \"npm run backend\" \"npm run start\"",
+    "dev-win": "concurrently \"npm run backend-win\" \"npm run start\""
   },
   "private": true,
   "dependencies": {
