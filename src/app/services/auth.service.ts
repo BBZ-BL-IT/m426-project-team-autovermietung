@@ -35,4 +35,10 @@ export class AuthService implements OnInit {
       }
     });
   }
+
+  async logout() {
+    this.userBehaviorSubject.next(null);
+    this.cookieService.delete('user');
+    this.router.navigate(['/login']);
+  }
 }
