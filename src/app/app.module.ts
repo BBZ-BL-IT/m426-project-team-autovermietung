@@ -14,9 +14,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
 import { MatOption } from '@angular/material/core';
 import { MatSelect } from '@angular/material/select';
-import { ReactiveFormsModule , FormsModule } from '@angular/forms';
-import { MatInputModule} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 import { VehicleDatailComponent } from './pages/vehicle-datail/vehicle-datail.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { VehicleComponent } from './pages/vehicle/vehicle.component';
 
 
@@ -43,8 +44,9 @@ import { VehicleComponent } from './pages/vehicle/vehicle.component';
     MatSelect,
     FormsModule,
     MatInputModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     ReactiveFormsModule
-    
   ],
   providers: [
     provideAnimationsAsync()
