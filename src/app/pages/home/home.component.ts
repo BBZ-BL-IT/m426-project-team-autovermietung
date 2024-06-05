@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Vehicle } from '../../data/vehicle';
+import { Vehicle } from '../../data/vehicle_test';
 
 @Component({
   selector: 'app-home',

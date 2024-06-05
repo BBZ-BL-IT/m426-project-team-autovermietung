@@ -10,6 +10,9 @@ const routes: Routes = [
   },
   {
     path: "login", component: LoginComponent, pathMatch: "full"
+  },
+  {
+    path: "edit-vehicle/:id", component: LoginComponent, pathMatch: "full"
   }
 ];
 
