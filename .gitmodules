@@ -1,0 +1,4 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/BBZ-BL-IT/m426-project-backend-team-autovermietung.git
+	branch = dev
