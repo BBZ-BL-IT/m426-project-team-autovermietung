@@ -1,14 +1,19 @@
 import { Component } from '@angular/core';
 import { VehicleTest } from '../../data/vehicle_test';
+import { Router } from '@angular/router';
+import { Vehicle } from '../../data/vehicle';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  selector: 'app-vehicle',
+  templateUrl: './vehicle.component.html',
+  styleUrl: './vehicle.component.css'
 })
-export class HomeComponent {
+export class VehicleComponent {
 
+  constructor(private router: Router){
 
+  }
+  
    vehicle1 = new VehicleTest(
     1,
     'Toyota',
@@ -51,10 +56,14 @@ export class HomeComponent {
     50
 );
 
-  displayedColumns: string[] = ['brand', 'model', 'enginePower', 'mileage', 'color', 'rentalPrice', 'actions'];
+  displayedColumns: string[] = ['brand', 'model', 'engine_power', 'mileage', 'color', 'rental_price', 'actions'];
   name : string = "";
 
   
   data : VehicleTest[] = [this.vehicle1, this.vehicle2, this.vehicle3]
+
+  async edit(e: Vehicle){
+    await this.router.navigate(['edit-vehicle', e.id]);
+  }
 
 }

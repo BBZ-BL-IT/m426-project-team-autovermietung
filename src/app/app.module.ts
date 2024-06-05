@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { VehicleDatailComponent } from './pages/vehicle-datail/vehicle-datail.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { VehicleComponent } from './pages/vehicle/vehicle.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     LoginComponent,
     NavigationComponent,
     HomeComponent,
-    VehicleDatailComponent
+    VehicleDatailComponent,
+    VehicleComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideAnimationsAsync()
