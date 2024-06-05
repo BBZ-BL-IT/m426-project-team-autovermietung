@@ -1,25 +1,36 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { User } from '../data/user';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements OnInit {
   backendUrl = environment.apiUrl + '/api/login';
 
   private userBehaviorSubject = new BehaviorSubject<User | null | undefined>(null);
   public user = this.userBehaviorSubject.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) { }
+
+  ngOnInit() {
+    const user = this.cookieService.get('user');
+    if (user) {
+      this.userBehaviorSubject.next(JSON.parse(user));
+    }
+  }
 
   async login(username: string, password: string) {
     await this.http.post(this.backendUrl, { username, password }).subscribe((res: any) => {
       if (res.message == 'Login successful') {
         this.userBehaviorSubject.next(res.user);
+        this.cookieService.set('user', JSON.stringify(res.user));
+
         this.router.navigate(['/']);
       }
     });
