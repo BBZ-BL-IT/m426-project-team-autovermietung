@@ -56,7 +56,7 @@ export class VehicleComponent {
     50
 );
 
-  displayedColumns: string[] = ['brand', 'model', 'enginePower', 'mileage', 'color', 'rentalPrice', 'actions'];
+  displayedColumns: string[] = ['brand', 'model', 'engine_power', 'mileage', 'color', 'rental_price', 'actions'];
   name : string = "";
 
   
