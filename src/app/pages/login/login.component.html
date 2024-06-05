@@ -1,26 +1,26 @@
 <body>
-<div class="Login">
-    <form >
-        <div class="Components">
-            <div>
-                <mat-form-field style="width: 400px;">
-                    <mat-label>Username</mat-label>
-                    <input  matInput placeholder="Ex. Pizza" value="User">    
-                </mat-form-field>
-                <mat-form-field style="width: 400px;">
-                    <mat-label>Password</mat-label>
-                    <input type=password matInput placeholder="Ex. Pizza" value="Password">    
-                </mat-form-field>
-    
-            </div>
-          
-            <div>
-                <button (click)="login()" color="primary" mat-raised-button style="width: 200px;">
-                    Login
-                </button>
-            </div>  
-        </div>
-          
-      </form>
-</div>
+  <div class="Login">
+    <form (ngSubmit)="login(loginForm.value)" [formGroup]="loginForm!">
+    <div class="Components">
+      <div>
+        <mat-form-field style="width: 400px;">
+          <mat-label>Username</mat-label>
+          <input matInput required formControlName="username">
+        </mat-form-field>
+        <mat-form-field style="width: 400px;">
+          <mat-label>Password</mat-label>
+          <input type=password matInput required formControlName="password">
+        </mat-form-field>
+
+      </div>
+
+      <div>
+        <button [disabled]="!loginForm.valid" color="primary" mat-raised-button style="width: 200px;">
+          Login
+        </button>
+      </div>
+    </div>
+
+    </form>
+  </div>
 </body>
