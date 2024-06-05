@@ -1,3 +1,5 @@
+<body>
+    <div class="buffer">></div>
 <div>
     <div class="app-form">
       <form [formGroup]="objForm!"  (ngSubmit)="save(objForm.value)">
@@ -26,7 +28,7 @@
            <div>
                 <mat-form-field>
                     <mat-label> Vehicle Number </mat-label>
-                    <input #inputLicence appAutofocus formControlName="license_plate" matInput maxlength="17" minlength="17" required>
+                    <input #inputLicence appAutofocus formControlName="license_plate" matInput maxlength="20" required>
                 </mat-form-field>
             </div>
             <div>
@@ -65,7 +67,7 @@
                     <input #inputLicence appAutofocus formControlName="consumption" matInput maxlength="20" required>
                 </mat-form-field>
             </div>
-            <button [disabled]="!objForm.valid" *appIsInRole="'admin'" color="primary" mat-raised-button style="width: 200px">
+            <button [disabled]="!objForm.valid" class="save-button" mat-raised-button style="width: 200px">
                 {{ 'Save' }}
             </button>
         </div>
@@ -73,3 +75,4 @@
       </form>
     </div>
   </div>
+</body>
