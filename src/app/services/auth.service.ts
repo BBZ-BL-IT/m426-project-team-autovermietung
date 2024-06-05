@@ -13,7 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class AuthService implements OnInit {
   backendUrl = environment.apiUrl + '/api/login';
 
-  private userBehaviorSubject = new BehaviorSubject<User | null | undefined>(null);
+  private userBehaviorSubject = new BehaviorSubject<User | null>(null);
   public user = this.userBehaviorSubject.asObservable();
 
   constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) { }
