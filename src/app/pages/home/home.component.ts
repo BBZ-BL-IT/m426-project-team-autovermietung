@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Vehicle } from '../../data/vehicle';
+import { VehicleTest } from '../../data/vehicle_test';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { Vehicle } from '../../data/vehicle';
 export class HomeComponent {
 
 
-   vehicle1 = new Vehicle(
+   vehicle1 = new VehicleTest(
     1,
     'Toyota',
     'Camry',
@@ -23,7 +23,7 @@ export class HomeComponent {
     50
 );
 
- vehicle2 = new Vehicle(
+ vehicle2 = new VehicleTest(
     2,
     'Honda',
     'Civic',
@@ -37,7 +37,7 @@ export class HomeComponent {
     50
 );
 
- vehicle3 = new Vehicle(
+ vehicle3 = new VehicleTest(
     3,
     'Tesla',
     'Model S',
@@ -55,6 +55,6 @@ export class HomeComponent {
   name : string = "";
 
   
-  data : Vehicle[] = [this.vehicle1, this.vehicle2, this.vehicle3]
+  data : VehicleTest[] = [this.vehicle1, this.vehicle2, this.vehicle3]
 
 }

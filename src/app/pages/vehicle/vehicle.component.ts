@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { VehicleTest } from '../../data/vehicle_test';
+import { Router } from '@angular/router';
 import { Vehicle } from '../../data/vehicle';
 
 @Component({
@@ -8,8 +10,11 @@ import { Vehicle } from '../../data/vehicle';
 })
 export class VehicleComponent {
 
+  constructor(private router: Router){
 
-   vehicle1 = new Vehicle(
+  }
+  
+   vehicle1 = new VehicleTest(
     1,
     'Toyota',
     'Camry',
@@ -23,7 +28,7 @@ export class VehicleComponent {
     50
 );
 
- vehicle2 = new Vehicle(
+ vehicle2 = new VehicleTest(
     2,
     'Honda',
     'Civic',
@@ -37,7 +42,7 @@ export class VehicleComponent {
     50
 );
 
- vehicle3 = new Vehicle(
+ vehicle3 = new VehicleTest(
     3,
     'Tesla',
     'Model S',
@@ -55,6 +60,10 @@ export class VehicleComponent {
   name : string = "";
 
   
-  data : Vehicle[] = [this.vehicle1, this.vehicle2, this.vehicle3]
+  data : VehicleTest[] = [this.vehicle1, this.vehicle2, this.vehicle3]
+
+  async edit(e: Vehicle){
+    await this.router.navigate(['edit-vehicle', e.id]);
+  }
 
 }
