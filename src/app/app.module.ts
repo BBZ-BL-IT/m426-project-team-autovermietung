@@ -17,6 +17,7 @@ import { MatSelect } from '@angular/material/select';
 import { ReactiveFormsModule , FormsModule } from '@angular/forms';
 import { MatInputModule} from '@angular/material/input';
 import { VehicleDatailComponent } from './pages/vehicle-datail/vehicle-datail.component';
+import { VehicleComponent } from './pages/vehicle/vehicle.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { VehicleDatailComponent } from './pages/vehicle-datail/vehicle-datail.co
     NavigationComponent,
     HomeComponent,
     VehicleDatailComponent,
+    VehicleComponent
   ],
   imports: [
     BrowserModule,

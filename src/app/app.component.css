@@ -1,8 +1,9 @@
 body{
     width: 1200px;
     margin: 0 auto;
+    
 }
 router-outlet{
     width: 1200px;
-    margin: 0 auto;
+    margin: 50px auto auto;
 }
