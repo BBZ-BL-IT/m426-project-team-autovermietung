@@ -9,7 +9,7 @@ import { Vehicle } from '../data/vehicle';
   })
   export class VehicleService {
     
-    readonly backendUrl = 'cars';
+    readonly backendUrl = '/api/cars';
     
 
     constructor(private http: HttpClient) {

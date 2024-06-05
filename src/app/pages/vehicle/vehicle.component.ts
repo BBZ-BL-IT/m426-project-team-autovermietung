@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { VehicleTest } from '../../data/vehicle_test';
 import { Router } from '@angular/router';
 import { Vehicle } from '../../data/vehicle';
+import { VehicleService } from '../../services/vehicle.service';
 
 @Component({
   selector: 'app-vehicle',
@@ -10,60 +11,24 @@ import { Vehicle } from '../../data/vehicle';
 })
 export class VehicleComponent {
 
-  constructor(private router: Router){
-
+  constructor(private vehicleService: VehicleService, private router: Router){
+    this.reloadData();
   }
-  
-   vehicle1 = new VehicleTest(
-    1,
-    'Toyota',
-    'Camry',
-    'Red',
-    'ABC123',
-    15000,
-    250,
-    'Petrol',
-    5,
-    100,
-    50
-);
-
- vehicle2 = new VehicleTest(
-    2,
-    'Honda',
-    'Civic',
-    'Blue',
-    'XYZ789',
-    30000,
-    180,
-    'Diesel',
-    5,
-    90,
-    50
-);
-
- vehicle3 = new VehicleTest(
-    3,
-    'Tesla',
-    'Model S',
-    'Black',
-    'EV456',
-    10000,
-    300,
-    'Electric',
-    5,
-    150,
-    50
-);
 
   displayedColumns: string[] = ['brand', 'model', 'engine_power', 'mileage', 'color', 'rental_price', 'actions'];
   name : string = "";
-
   
-  data : VehicleTest[] = [this.vehicle1, this.vehicle2, this.vehicle3]
+  data : Vehicle[] = []
 
   async edit(e: Vehicle){
     await this.router.navigate(['edit-vehicle', e.id]);
   }
+
+  reloadData(){
+    this.vehicleService.getList().subscribe(fahrzeug => {
+      this.data = fahrzeug;
+    });
+  }
+
 
 }
