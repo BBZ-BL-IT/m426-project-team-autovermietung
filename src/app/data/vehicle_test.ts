@@ -1,4 +1,4 @@
-export class Vehicle {
+export class VehicleTest {
     constructor(
         id: number,
         brand: string,
