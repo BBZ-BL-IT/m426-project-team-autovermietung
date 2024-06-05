@@ -22,7 +22,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { VehicleDatailComponent } from './pages/vehicle-datail/vehicle-datail.component';
 import { VehicleComponent } from './pages/vehicle/vehicle.component';
-
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -52,6 +52,7 @@ import { VehicleComponent } from './pages/vehicle/vehicle.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatMenuModule,
   ],
   providers: [
     provideAnimationsAsync()

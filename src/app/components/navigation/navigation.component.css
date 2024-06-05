@@ -1,5 +1,5 @@
 
-div{
+.navbar-banner{
     background-color: black;
     overflow: hidden;
     position: fixed;
@@ -15,23 +15,23 @@ div{
     background-color:black;
     z-index: 9999;
 }
-  
+
   .navbar-title {
     display: flex;
     align-items: center;
   }
-  
+
   .logo {
     height: 40px;
     margin-right: 8px;
   }
-  
+
   .title {
     font-size: 24px;
     font-weight: bold;
     margin-left: 15px;
   }
-  
+
   .navbar-nav {
     position: absolute;
     left: 50%;
@@ -39,7 +39,7 @@ div{
     display: flex;
     align-items: center;
   }
-  
+
   .navbar-nav a {
     margin: 0 10px;
   }
@@ -48,12 +48,22 @@ div{
     color: black;
     background-color: white;
   }
-  
+
+
   .navbar-login {
     display: flex;
     align-items: center;
   }
-  .navbar-login a:hover{
+  .navbar-login button:hover{
     color: black;
     background-color: white;
   }
+  .navbar-login button{
+    color: white;
+    background-color: black;
+  }
+  .navbar-login div label{
+    color: white;
+  }
+
+
