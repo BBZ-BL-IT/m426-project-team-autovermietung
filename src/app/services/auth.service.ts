@@ -10,18 +10,17 @@ import { CookieService } from 'ngx-cookie-service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService implements OnInit {
+export class AuthService {
   backendUrl = environment.apiUrl + '/api/login';
 
   private userBehaviorSubject = new BehaviorSubject<User | null>(null);
   public user = this.userBehaviorSubject.asObservable();
 
-  constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) { }
-
-  ngOnInit() {
-    const user = this.cookieService.get('user');
-    if (user) {
-      this.userBehaviorSubject.next(JSON.parse(user));
+  constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) {
+    const userCookie = this.cookieService.get('user');
+    if (userCookie) {
+      const user = JSON.parse(userCookie);
+      this.userBehaviorSubject.next(user);
     }
   }
 
@@ -30,7 +29,6 @@ export class AuthService implements OnInit {
       if (res.message == 'Login successful') {
         this.userBehaviorSubject.next(res.user);
         this.cookieService.set('user', JSON.stringify(res.user));
-
         this.router.navigate(['/']);
       }
     });

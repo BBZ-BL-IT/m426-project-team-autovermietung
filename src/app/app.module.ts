@@ -23,6 +23,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { VehicleDatailComponent } from './pages/vehicle-datail/vehicle-datail.component';
 import { VehicleComponent } from './pages/vehicle/vehicle.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatMenuModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    CookieService,
   ],
   bootstrap: [AppComponent]
 })
