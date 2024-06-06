@@ -24,6 +24,7 @@ import { VehicleDatailComponent } from './pages/vehicle-datail/vehicle-datail.co
 import { VehicleComponent } from './pages/vehicle/vehicle.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { CookieService } from 'ngx-cookie-service';
+import { IsLoginDirective } from './directives/is.login.directive';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CookieService } from 'ngx-cookie-service';
     VehicleDatailComponent,
     VehicleComponent,
     IsAdminDirective,
+    IsLoginDirective,
     AutofocusDirective,
   ],
   imports: [
