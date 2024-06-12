@@ -19,6 +19,9 @@ import { MatInputModule } from '@angular/material/input';
 import { VehicleDatailComponent } from './pages/vehicle-datail/vehicle-datail.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { VehicleComponent } from './pages/vehicle/vehicle.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -28,7 +31,8 @@ import { VehicleComponent } from './pages/vehicle/vehicle.component';
     NavigationComponent,
     HomeComponent,
     VehicleDatailComponent,
-    VehicleComponent
+    VehicleComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { VehicleComponent } from './pages/vehicle/vehicle.component';
     MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [
     provideAnimationsAsync()
