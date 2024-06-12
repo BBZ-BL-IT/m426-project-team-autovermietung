@@ -16,19 +16,12 @@ export class AuthService {
   private userBehaviorSubject = new BehaviorSubject<User | null>(null);
   public user = this.userBehaviorSubject.asObservable();
 
-  constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) {
-    const userCookie = this.cookieService.get('user');
-    if (userCookie) {
-      const user = JSON.parse(userCookie);
-      this.userBehaviorSubject.next(user);
-    }
-  }
+  constructor(private http: HttpClient, private router: Router) {}
 
   async login(username: string, password: string) {
     await this.http.post(this.backendUrl, { username, password }).subscribe((res: any) => {
       if (res.message == 'Login successful') {
         this.userBehaviorSubject.next(res.user);
-        this.cookieService.set('user', JSON.stringify(res.user));
         this.router.navigate(['/']);
       }
     });
@@ -36,7 +29,6 @@ export class AuthService {
 
   async logout() {
     this.userBehaviorSubject.next(null);
-    this.cookieService.delete('user');
     this.router.navigate(['/login']);
   }
 }
