@@ -25,6 +25,10 @@ import { VehicleComponent } from './pages/vehicle/vehicle.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { CookieService } from 'ngx-cookie-service';
 import { IsLoginDirective } from './directives/is.login.directive';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +41,7 @@ import { IsLoginDirective } from './directives/is.login.directive';
     IsAdminDirective,
     IsLoginDirective,
     AutofocusDirective,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +61,9 @@ import { IsLoginDirective } from './directives/is.login.directive';
     HttpClientModule,
     BrowserAnimationsModule,
     MatMenuModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [
     provideAnimationsAsync(),
