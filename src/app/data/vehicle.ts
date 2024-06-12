@@ -3,14 +3,14 @@ export class Vehicle {
     public brand: string = '';
     public model: string = '';
     public color: string = '';
-    public license_plate: string = '';
+    public licensePlate: string = '';
     public mileage: number = 0;
-    public engine_power: number = 0;
-    public fuel_type: string = '';
-    public number_of_seats: number = 0;
-    public rental_price: number = 0;
+    public enginePower: number = 0;
+    public fuelType: string = '';
+    public numberOfSeats: number = 0;
+    public rentalPrice: number = 0;
     public consumption: number = 0;
+    public enabled: boolean = true;
   }
 
 
-  
