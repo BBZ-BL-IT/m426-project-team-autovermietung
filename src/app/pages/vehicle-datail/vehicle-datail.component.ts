@@ -18,12 +18,12 @@ export class VehicleDatailComponent implements OnInit {
     brand: new UntypedFormControl(''),
     model: new UntypedFormControl(''),
     color: new UntypedFormControl(''),
-    license_plate: new UntypedFormControl(''),
+    licensePlate: new UntypedFormControl(''),
     mileage: new UntypedFormControl(''),
-    engine_power: new UntypedFormControl(''),
-    fuel_type: new UntypedFormControl(''),
-    number_of_seats: new UntypedFormControl(''),
-    rental_price: new UntypedFormControl(''),
+    enginePower: new UntypedFormControl(''),
+    fuelType: new UntypedFormControl(''),
+    numberOfSeats: new UntypedFormControl(''),
+    rentalPrice: new UntypedFormControl(''),
     consumption: new UntypedFormControl(''),
   });
 

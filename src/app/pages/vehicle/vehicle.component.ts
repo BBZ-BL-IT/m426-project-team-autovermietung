@@ -18,7 +18,7 @@ export class VehicleComponent {
     this.reloadData();
   }
 
-  displayedColumns: string[] = ['brand', 'model', 'engine_power', 'mileage', 'color', 'rental_price', 'actions'];
+  displayedColumns: string[] = ['brand', 'model', 'enginePower', 'mileage', 'color', 'rentalPrice', 'actions'];
   name : string = "";
 
   data : Vehicle[] = []
