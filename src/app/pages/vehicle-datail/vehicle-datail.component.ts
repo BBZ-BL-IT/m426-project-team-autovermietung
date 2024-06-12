@@ -53,7 +53,7 @@ export class VehicleDatailComponent implements OnInit {
   async save(formData: any) {
     this.vehicle = Object.assign(formData);
 
-    if (this.vehicle.id) {
+    if (this.vehicle.id !==  null) {
       this.vehicleService.update(this.vehicle).subscribe({
         next: () => {
           this.snackBar.open("Item saved!", "Close", { duration: 5000 });
