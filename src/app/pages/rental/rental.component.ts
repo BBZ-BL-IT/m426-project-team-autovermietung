@@ -22,6 +22,10 @@ export class RentalComponent {
 
   data : Rental[] = []
 
+  async openCar(e: Number){
+    await this.router.navigate(['car', e]);
+  }
+
   async edit(e: Rental){
     await this.router.navigate(['rental', e.id]);
   }

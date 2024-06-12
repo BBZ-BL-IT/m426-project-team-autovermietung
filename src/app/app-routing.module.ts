@@ -5,8 +5,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { VehicleComponent } from './pages/vehicle/vehicle.component';
 import { VehicleDatailComponent } from './pages/vehicle-datail/vehicle-datail.component';
-import { HistoryComponent } from './pages/rental/rental.component';
-import { HistoryDetailComponent } from './pages/history-detail/history-detail.component';
+import { RentalComponent } from './pages/rental/rental.component';
+import { RentalDetailComponent } from './pages/rental-detail/rental-detail.component';
 
 const routes: Routes = [
   {
@@ -25,13 +25,13 @@ const routes: Routes = [
     path: "car/:id", component: VehicleDatailComponent, pathMatch: "full"
   },
   {
-    path: "historys", component: HistoryComponent, pathMatch: "full"
+    path: "rentals", component: RentalComponent, pathMatch: "full"
   },
   {
-    path: "history", component: HistoryDetailComponent, pathMatch: "full"
+    path: "rental", component: RentalDetailComponent, pathMatch: "full"
   },
   {
-    path: "history/:id", component: HistoryDetailComponent, pathMatch: "full"
+    path: "rental/:id", component: RentalDetailComponent, pathMatch: "full"
   }
 
 ];
