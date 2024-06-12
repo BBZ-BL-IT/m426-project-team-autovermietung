@@ -1,5 +1,6 @@
 
-<div><mat-toolbar>
+<div class="navbar-banner">
+  <mat-toolbar>
     <span class="navbar-title">
         <mat-icon>airport_shuttle</mat-icon>
         <span class="title">Autovermietung</span>
@@ -9,9 +10,26 @@
         <a mat-button routerLink="/cars">Cars</a>
         <a mat-button routerLink="/history">History</a>
       </span>
+
+
       <span class="navbar-login">
-            <a mat-button routerLink="/login"><mat-icon>account_circle</mat-icon> Account</a>
-           <!---- <button mat-button (click)="login()">Login</button>-->
+        <div *ngIf="user !== null; else loginTemplate">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>account_circle</mat-icon>
+            {{ user.username | uppercase}}
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>logout</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+        </div>
+        <ng-template #loginTemplate>
+          <button mat-button (click)="login()">Login</button>
+        </ng-template>
       </span>
 </mat-toolbar>
+
+
 </div>
