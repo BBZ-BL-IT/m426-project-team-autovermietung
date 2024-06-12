@@ -24,11 +24,11 @@ export class VehicleComponent {
   data : Vehicle[] = []
 
   async edit(e: Vehicle){
-    await this.router.navigate(['car', e.id]);
+    await this.router.navigate(['history', e.id]);
   }
 
   async add(){
-    await this.router.navigate(['car']);
+    await this.router.navigate(['history']);
   }
   delete(e: Vehicle) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {

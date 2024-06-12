@@ -29,6 +29,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { HistoryComponent } from './pages/history/history.component';
+import { HistoryDetailComponent } from './pages/history-detail/history-detail.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { HistoryComponent } from './pages/history/history.component';
     IsLoginDirective,
     AutofocusDirective,
     ConfirmDialogComponent,
-    HistoryComponent
+    HistoryComponent,
+    HistoryDetailComponent
   ],
   imports: [
     BrowserModule,
