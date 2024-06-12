@@ -9,6 +9,7 @@ import { AuthService } from '../services/auth.service';
 export class IsAdminDirective implements OnInit, OnDestroy {
   stop$ = new Subject();
   isVisible = false;
+  
 
   constructor(
     private viewContainerRef: ViewContainerRef,
