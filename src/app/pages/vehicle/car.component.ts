@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
-import { VehicleTest } from '../../data/vehicle_test';
 import { Router } from '@angular/router';
 import { Vehicle } from '../../data/vehicle';
 import { VehicleService } from '../../services/vehicle.service';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { async } from 'rxjs';
 
 @Component({
   selector: 'app-vehicle',
-  templateUrl: './vehicle.component.html',
-  styleUrl: './vehicle.component.css'
+  templateUrl: './car.component.html',
+  styleUrl: './car.component.css'
 })
-export class VehicleComponent {
+export class CarComponent {
 
   constructor(private vehicleService: VehicleService, private router: Router, private dialog: MatDialog) {
     this.reloadData();

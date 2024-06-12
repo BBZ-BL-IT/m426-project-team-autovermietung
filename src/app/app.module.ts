@@ -21,7 +21,7 @@ import { IsAdminDirective } from './directives/is.admin.directive';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { VehicleDatailComponent } from './pages/vehicle-datail/vehicle-datail.component';
-import { VehicleComponent } from './pages/vehicle/vehicle.component';
+import { CarComponent } from './pages/vehicle/car.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { CookieService } from 'ngx-cookie-service';
 import { IsLoginDirective } from './directives/is.login.directive';
@@ -37,7 +37,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     NavigationComponent,
     HomeComponent,
     VehicleDatailComponent,
-    VehicleComponent,
+    CarComponent,
     IsAdminDirective,
     IsLoginDirective,
     AutofocusDirective,
