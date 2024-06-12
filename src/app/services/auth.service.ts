@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../data/user';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable({
