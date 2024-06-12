@@ -1,1 +1,55 @@
-<p>rental-detail works!</p>
+<body>
+  <div class="buffer">></div>
+<div>
+  <div class="app-form">
+    <form [formGroup]="objForm!"  (ngSubmit)="save(objForm.value)">
+      <div class="form-elements">
+          <div>
+              <mat-form-field>
+                  <mat-label> Auto </mat-label>
+                  <input #inputLicence appAutofocus formControlName="licensePlate" matInput maxlength="20" required>
+              </mat-form-field>
+          </div>
+
+          <div>
+              <mat-form-field>
+                  <mat-label> Benutzer </mat-label>
+                  <input #inputLicence formControlName="username" matInput maxlength="20" required>
+              </mat-form-field>
+          </div>
+
+          <div>
+              <mat-form-field>
+                  <mat-label> Start Datum </mat-label>
+                  <input #inputLicence formControlName="rentalStart" matInput maxlength="10" required>
+              </mat-form-field>
+         </div>
+
+         <div>
+              <mat-form-field>
+                  <mat-label> End Datum </mat-label>
+                  <input #inputLicence formControlName="rentalEnd" matInput maxlength="20" required>
+              </mat-form-field>
+          </div>
+          <div>
+              <mat-form-field>
+                  <mat-label> Kosten </mat-label>
+                  <input #inputLicence formControlName="totalCost" matInput maxlength="20" required>
+              </mat-form-field>
+          </div>
+          <div>
+              <mat-form-field>
+                  <mat-label> Status </mat-label>
+                  <input #inputLicence formControlName="status" matInput maxlength="20" required>
+              </mat-form-field>
+          </div>
+
+          <button *appIsAdmin="" [disabled]="!objForm.valid" class="save-button" mat-raised-button style="width: 200px">
+              {{ 'Save' }}
+          </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+</body>
