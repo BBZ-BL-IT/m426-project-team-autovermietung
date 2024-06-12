@@ -4,31 +4,31 @@
     <div class="app-form">
       <form [formGroup]="objForm!"  (ngSubmit)="save(objForm.value)">
         <div class="form-elements">
-            <div> 
+            <div>
                 <mat-form-field>
                     <mat-label> Brand </mat-label>
                     <input #inputLicence appAutofocus formControlName="brand" matInput maxlength="20" required>
                 </mat-form-field>
             </div>
-           
+
             <div>
                 <mat-form-field>
                     <mat-label> Model </mat-label>
                     <input #inputLicence appAutofocus formControlName="model" matInput maxlength="20" required>
                 </mat-form-field>
             </div>
-           
+
             <div>
                 <mat-form-field>
                     <mat-label> Color </mat-label>
                     <input #inputLicence appAutofocus formControlName="color" matInput maxlength="10" required>
                 </mat-form-field>
            </div>
-            
+
            <div>
                 <mat-form-field>
                     <mat-label> Vehicle Number </mat-label>
-                    <input #inputLicence appAutofocus formControlName="license_plate" matInput maxlength="20" required>
+                    <input #inputLicence appAutofocus formControlName="licensePlate" matInput maxlength="20" required>
                 </mat-form-field>
             </div>
             <div>
@@ -40,25 +40,25 @@
             <div>
                 <mat-form-field>
                     <mat-label> PS </mat-label>
-                    <input #inputLicence appAutofocus formControlName="engine_power" matInput maxlength="20" required>
+                    <input #inputLicence appAutofocus formControlName="enginePower" matInput maxlength="20" required>
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field>
                     <mat-label> Fueltype </mat-label>
-                    <input #inputLicence appAutofocus formControlName="fuel_type" matInput maxlength="20" required>
+                    <input #inputLicence appAutofocus formControlName="fuelType" matInput maxlength="20" required>
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field>
                     <mat-label> Seats </mat-label>
-                    <input #inputLicence appAutofocus formControlName="number_of_seats" matInput maxlength="20" required>
+                    <input #inputLicence appAutofocus formControlName="numberOfSeats" matInput maxlength="20" required>
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field>
                     <mat-label> Price </mat-label>
-                    <input #inputLicence appAutofocus formControlName="rental_price" matInput maxlength="20" required>
+                    <input #inputLicence appAutofocus formControlName="rentalPrice" matInput maxlength="20" required>
                 </mat-form-field>
             </div>
             <div>
@@ -71,7 +71,7 @@
                 {{ 'Save' }}
             </button>
         </div>
-        
+
       </form>
     </div>
   </div>
