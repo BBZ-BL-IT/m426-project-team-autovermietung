@@ -5,7 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { VehicleComponent } from './pages/vehicle/vehicle.component';
 import { VehicleDatailComponent } from './pages/vehicle-datail/vehicle-datail.component';
-import { HistoryComponent } from './pages/history/history.component';
+import { HistoryComponent } from './pages/rental/rental.component';
 import { HistoryDetailComponent } from './pages/history-detail/history-detail.component';
 
 const routes: Routes = [

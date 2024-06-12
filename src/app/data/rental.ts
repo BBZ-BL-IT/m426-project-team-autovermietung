@@ -1,5 +1,5 @@
 
-export class History{
+export class Rental{
   public id!: number;
   public car_id!: number;
   public user_id!: number;

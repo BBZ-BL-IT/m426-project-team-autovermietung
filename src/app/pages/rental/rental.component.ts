@@ -1,35 +1,35 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { History } from '../../data/history';
-import { HistoryService } from '../../services/history.service';
+import { Rental } from '../../data/rental';
+import { RentalService } from '../../services/rental.service';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { async } from 'rxjs';
 
 @Component({
-  selector: 'app-history',
-  templateUrl: './history.component.html',
-  styleUrl: './history.component.css'
+  selector: 'app-rental',
+  templateUrl: './rental.component.html',
+  styleUrl: './rental.component.css'
 })
-export class HistoryComponent {
+export class RentalComponent {
 
-  constructor(private historyService: HistoryService, private router: Router, private dialog: MatDialog) {
+  constructor(private rentalService: RentalService, private router: Router, private dialog: MatDialog) {
     this.reloadData();
   }
 
   displayedColumns: string[] = ['car_id', 'user_id', 'rentalStart', 'rentalEnd', 'totalCost', 'status', 'actions'];
   name : string = "";
 
-  data : History[] = []
+  data : Rental[] = []
 
-  async edit(e: History){
-    await this.router.navigate(['history', e.id]);
+  async edit(e: Rental){
+    await this.router.navigate(['rental', e.id]);
   }
 
   async add(){
-    await this.router.navigate(['history']);
+    await this.router.navigate(['rental']);
   }
-  delete(e: History) {
+  delete(e: Rental) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       maxWidth: '400px',
 
@@ -37,7 +37,7 @@ export class HistoryComponent {
   }
 
   reloadData(){
-    this.historyService.getList().subscribe(rentals => {
+    this.rentalService.getList().subscribe(rentals => {
       this.data = rentals;
     });
   }
