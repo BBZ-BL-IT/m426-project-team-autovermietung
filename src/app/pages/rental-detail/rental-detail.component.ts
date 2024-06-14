@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormControl, UntypedFormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, UntypedFormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Rental } from '../../data/rental';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RentalService } from '../../services/rental.service';
+import { Vehicle } from '../../data/vehicle';
 
 @Component({
   selector: 'app-rental-detail',
@@ -14,8 +15,17 @@ export class RentalDetailComponent implements OnInit {
 
 
   rental = new Rental();
-  public objForm = new UntypedFormGroup({
-    brand: new UntypedFormControl(''),
+  public objForm = new FormGroup({
+    Vehicle: new FormGroup({
+      licensePlate: new FormControl(''),
+    }),
+    User: new FormGroup({
+      username: new FormControl(''),
+    }),
+    rentalStart: new FormControl(''),
+    rentalEnd: new FormControl(''),
+    totalCost: new FormControl(''),
+    status: new FormControl(''),
 
   });
 
@@ -38,7 +48,7 @@ export class RentalDetailComponent implements OnInit {
     }
   }
   async back() {
-    await this.router.navigate(['rental']);
+    await this.router.navigate(['rentals']);
   }
 
   async save(formData: any) {

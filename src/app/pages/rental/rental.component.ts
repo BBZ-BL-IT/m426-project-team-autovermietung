@@ -18,7 +18,7 @@ export class RentalComponent {
   }
 
   displayedColumns: string[] = ['car_id', 'user_id', 'rentalStart', 'rentalEnd', 'totalCost', 'status', 'actions'];
-  name : string = "";
+  name : string = ""; 
 
   data : Rental[] = []
 

@@ -4,14 +4,14 @@
   <div class="app-form">
     <form [formGroup]="objForm!"  (ngSubmit)="save(objForm.value)">
       <div class="form-elements">
-          <div>
+          <div formGroupName="Vehicle">
               <mat-form-field>
                   <mat-label> Auto </mat-label>
                   <input #inputLicence appAutofocus formControlName="licensePlate" matInput maxlength="20" required>
               </mat-form-field>
           </div>
 
-          <div>
+          <div formGroupName="User">
               <mat-form-field>
                   <mat-label> Benutzer </mat-label>
                   <input #inputLicence formControlName="username" matInput maxlength="20" required>
@@ -44,10 +44,10 @@
               </mat-form-field>
           </div>
 
-          <button *appIsAdmin="" [disabled]="!objForm.valid" class="save-button" mat-raised-button style="width: 200px">
-              {{ 'Save' }}
-          </button>
       </div>
+      <button *appIsAdmin="" [disabled]="!objForm.valid" class="save-button" mat-raised-button style="width: 200px">
+        {{ 'Save' }}
+    </button>
 
     </form>
   </div>
