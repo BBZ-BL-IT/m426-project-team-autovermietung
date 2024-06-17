@@ -1,52 +1,70 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormControl, UntypedFormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Rental } from '../../data/rental';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RentalService } from '../../services/rental.service';
 import { Vehicle } from '../../data/vehicle';
+import { User } from '../../data/user';
 
 @Component({
   selector: 'app-rental-detail',
   templateUrl: './rental-detail.component.html',
-  styleUrl: './rental-detail.component.css'
+  styleUrls: ['./rental-detail.component.css']
 })
 export class RentalDetailComponent implements OnInit {
 
+  rental: Rental = new Rental();
+  objForm: UntypedFormGroup;
 
-  rental = new Rental();
-  public objForm = new FormGroup({
-    Vehicle: new FormGroup({
-      licensePlate: new FormControl(''),
-    }),
-    User: new FormGroup({
-      username: new FormControl(''),
-    }),
-    rentalStart: new FormControl(''),
-    rentalEnd: new FormControl(''),
-    totalCost: new FormControl(''),
-    status: new FormControl(''),
-
-  });
-
-  constructor(private router: Router, private route: ActivatedRoute,
-    private snackBar: MatSnackBar, private formBuilder: UntypedFormBuilder,
-    private rentalService: RentalService) {
-
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar,
+    private formBuilder: UntypedFormBuilder,
+    private rentalService: RentalService
+  ) {
+    this.objForm = this.formBuilder.group({
+      car: this.formBuilder.group({
+        licensePlate: ['', Validators.required],
+      }),
+      user: this.formBuilder.group({
+        username: ['', Validators.required],
+      }),
+      rentalStart: ['', Validators.required],
+      rentalEnd: ['', Validators.required],
+      totalCost: ['', Validators.required],
+      status: ['', Validators.required],
+    });
   }
 
   ngOnInit(): void {
-    if (this.route.snapshot.paramMap.get('id') !== null) {
-      const id = Number.parseInt(this.route.snapshot.paramMap.get('id') as string);
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id !== null) {
+      this.rentalService.getOne(Number(id)).subscribe({
+        next: (obj) => {
+          console.log('Rental data fetched:', obj);
 
-      this.rentalService.getOne(id).subscribe(obj => {
-        this.rental = obj;
-        this.objForm = this.formBuilder.group(obj);
+          obj.car = obj.car || new Vehicle();
+          obj.user = obj.user || new User();
+          this.rental = obj;
+          this.objForm.patchValue({
+            car: { licensePlate: obj.car.licensePlate || '' },
+            user: { username: obj.user.username || '' },
+            rentalStart: obj.rentalStart,
+            rentalEnd: obj.rentalEnd,
+            totalCost: obj.totalCost,
+            status: obj.status
+          });
+        },
+        error: (err) => {
+          console.error('Error loading rental data:', err);
+          this.snackBar.open("Error loading rental data", "Close", { duration: 5000 });
+        }
       });
-    } else {
-      this.objForm = this.formBuilder.group(this.rental);
     }
   }
+
   async back() {
     await this.router.navigate(['rentals']);
   }
