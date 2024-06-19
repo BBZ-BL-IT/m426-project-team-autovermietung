@@ -51,6 +51,8 @@ export class RentalDetailComponent implements OnInit {
           this.objForm.patchValue({
             car: { licensePlate: obj.car.licensePlate || '' },
             user: { username: obj.user.username || '' },
+            user_id: obj.user_id,
+            car_id: obj.car_id,
             rentalStart: obj.rentalStart,
             rentalEnd: obj.rentalEnd,
             totalCost: obj.totalCost,
@@ -70,9 +72,13 @@ export class RentalDetailComponent implements OnInit {
   }
 
   async save(formData: any) {
+
+
     this.rental = Object.assign(formData);
 
-    if (this.rental.id) {
+    console.log(this.rental)
+
+    if (this.rental.id !== 0) {
       this.rentalService.update(this.rental).subscribe({
         next: () => {
           this.snackBar.open("Item saved!", "Close", { duration: 5000 });
@@ -82,16 +88,7 @@ export class RentalDetailComponent implements OnInit {
           this.snackBar.open("Item could not be saved, server error!", "Close", { duration: 5000, politeness: 'assertive' });
         }
       });
-    } else {
-      this.rentalService.save(this.rental).subscribe({
-        next: () => {
-          this.snackBar.open("Item saved!", "Close", { duration: 5000 });
-          this.back();
-        },
-        error: () => {
-          this.snackBar.open("Item could not be saved, server error!", "Close", { duration: 5000, politeness: 'assertive' });
-        }
-      });
+
     }
   }
 }

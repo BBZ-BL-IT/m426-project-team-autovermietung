@@ -6,7 +6,7 @@ export class Vehicle {
     public licensePlate: string = '';
     public mileage: number = 0;
     public enginePower: number = 0;
-    public fuel_type: string = '';
+    public fuelType: string = '';
     public numberOfSeats: number = 0;
     public rentalPrice: number = 0;
     public consumption: number = 0;
