@@ -5,6 +5,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CarComponent } from './pages/vehicle/car.component';
 import { VehicleDatailComponent } from './pages/vehicle-datail/vehicle-datail.component';
+import { RentalComponent } from './pages/rental/rental.component';
+import { RentalDetailComponent } from './pages/rental-detail/rental-detail.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,15 @@ const routes: Routes = [
   {
     path: "car/:id", component: VehicleDatailComponent, pathMatch: "full"
   },
+  {
+    path: "rentals", component: RentalComponent, pathMatch: "full"
+  },
+  {
+    path: "rental", component: RentalDetailComponent, pathMatch: "full"
+  },
+  {
+    path: "rental/:id", component: RentalDetailComponent, pathMatch: "full"
+  }
 
 ];
 

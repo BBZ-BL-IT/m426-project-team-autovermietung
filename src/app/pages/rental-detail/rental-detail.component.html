@@ -1,0 +1,57 @@
+<body>
+  <div class="buffer"></div>
+  <div>
+    <div class="app-form">
+      <form [formGroup]="objForm" (ngSubmit)="save(objForm.value)">
+        <div class="form-elements">
+
+          <div formGroupName="car">
+            <mat-form-field>
+              <mat-label>Auto</mat-label>
+              <input formControlName="licensePlate" matInput maxlength="20" required>
+            </mat-form-field>
+          </div>
+
+          <div formGroupName="user">
+            <mat-form-field>
+              <mat-label>Benutzer</mat-label>
+              <input formControlName="username" matInput maxlength="20" required>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field>
+              <mat-label>Start Datum</mat-label>
+              <input formControlName="rentalStart" matInput type="date" required>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field>
+              <mat-label>End Datum</mat-label>
+              <input formControlName="rentalEnd" matInput type="date" required>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field>
+              <mat-label>Kosten</mat-label>
+              <input formControlName="totalCost" matInput type="number" required>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field>
+              <mat-label>Status</mat-label>
+              <input formControlName="status" matInput maxlength="20" required>
+            </mat-form-field>
+          </div>
+
+        </div>
+        <button [disabled]="!objForm.valid" class="save-button" mat-raised-button style="width: 200px">
+          {{ 'Save' }}
+        </button>
+      </form>
+    </div>
+  </div>
+</body>

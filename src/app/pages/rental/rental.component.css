@@ -1,0 +1,38 @@
+.title{
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.listButtons{
+  width: 200px;
+}
+.buffer{
+  width: 1200px;
+  margin: 0 auto;
+  height: 100px;
+}
+
+.table-header mat-toolbar{
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.table-header mat-toolbar button{
+margin: 0 auto;
+text-align: center;
+margin-bottom: 20px;
+background-color: black;
+color: white;
+}
+.table-header mat-toolbar button:hover{
+background-color: gray;
+color: black;
+}

@@ -27,7 +27,7 @@
 
            <div>
                 <mat-form-field>
-                    <mat-label> Vehicle Number </mat-label>
+                    <mat-label> License Plate </mat-label>
                     <input #inputLicence formControlName="licensePlate" matInput maxlength="20" required>
                 </mat-form-field>
             </div>
@@ -67,7 +67,7 @@
                     <input #inputLicence formControlName="consumption" matInput maxlength="20" required>
                 </mat-form-field>
             </div>
-            <button [disabled]="!objForm.valid" class="save-button" mat-raised-button style="width: 200px">
+            <button *appIsAdmin="" [disabled]="!objForm.valid" class="save-button" mat-raised-button style="width: 200px">
                 {{ 'Save' }}
             </button>
         </div>

@@ -28,6 +28,8 @@ import { IsLoginDirective } from './directives/is.login.directive';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { RentalDetailComponent } from './pages/rental-detail/rental-detail.component';
+import { RentalComponent } from './pages/rental/rental.component';
 
 
 @NgModule({
@@ -41,7 +43,10 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     IsAdminDirective,
     IsLoginDirective,
     AutofocusDirective,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    RentalComponent,
+    RentalDetailComponent,
+
   ],
   imports: [
     BrowserModule,
