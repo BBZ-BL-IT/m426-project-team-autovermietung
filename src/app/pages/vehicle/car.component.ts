@@ -43,15 +43,23 @@ export class CarComponent {
   }
 
   reloadData(){
-    this.vehicleService.getList().subscribe(fahrzeug => {
-      this.data = fahrzeug;
+    this.vehicleService.getList().subscribe(cars => {
+      this.data = cars;
     });
 
     
   }
 
   refresh(formData: any){
+    const vonDatum = formData.vonDatum;
+    const bisDatum = formData.bisDatum;
 
+    const formattedVonDatum = new Date(vonDatum).toISOString().split('T')[0];
+    const formattedBisDatum = new Date(bisDatum).toISOString().split('T')[0];
+
+    this.vehicleService.getByDate(formattedVonDatum, formattedBisDatum).subscribe(cars =>{
+      this.data = cars;
+    });
   }
 
 
