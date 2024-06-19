@@ -30,6 +30,9 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { RentalDetailComponent } from './pages/rental-detail/rental-detail.component';
 import { RentalComponent } from './pages/rental/rental.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -46,7 +49,6 @@ import { RentalComponent } from './pages/rental/rental.component';
     ConfirmDialogComponent,
     RentalComponent,
     RentalDetailComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -68,11 +70,17 @@ import { RentalComponent } from './pages/rental/rental.component';
     MatMenuModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule 
+
   ],
   providers: [
     provideAnimationsAsync(),
     CookieService,
+    MatDatepickerModule
+    
   ],
   bootstrap: [AppComponent]
 })

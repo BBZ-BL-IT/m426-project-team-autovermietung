@@ -4,6 +4,36 @@
 
   </div>
 <div>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Filters            
+        <mat-icon class="mat-icon">
+        tune
+      </mat-icon>
+    </mat-panel-title>
+    </mat-expansion-panel-header>
+    <form [formGroup]="objForm!" (ngSubmit)="refresh(objForm.value)">
+      <div class="form-elements">
+          <mat-form-field class="date-picker-filter-one">
+              <mat-label>Von Datum</mat-label>
+              <input formControlName="vonDatum" required matInput [matDatepicker]="picker">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker  ></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="date-picker-filter-two">
+              <mat-label>Bis Datum</mat-label>
+              <input formControlName="bisDatum" required matInput [matDatepicker]="picker2">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2 ></mat-datepicker>
+          </mat-form-field>
+          <button [disabled]="!objForm.valid" color="primary" mat-raised-button style="width: 200px" class="button-filter-refresh">
+              {{ 'Refresh' }}
+          </button>
+      </div>   
+    </form>
+  </mat-expansion-panel>
   <div class="table-header">
     <mat-toolbar>
       <span>

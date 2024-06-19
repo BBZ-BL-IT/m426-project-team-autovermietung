@@ -36,3 +36,18 @@ body{
   background-color: gray;
   color: black;
 }
+.mat-icon{
+    padding-left: 10px;
+}
+
+.date-picker-filter-one{
+    margin-left: 20px;
+}
+
+.date-picker-filter-two{
+    margin-left: 20px;
+}
+
+.button-filter-refresh{
+    margin-left: 20px;
+}
