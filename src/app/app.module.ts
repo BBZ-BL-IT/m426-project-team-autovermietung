@@ -33,6 +33,7 @@ import { RentalComponent } from './pages/rental/rental.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { IsUserDirective } from './directives/is.user.directive';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     ConfirmDialogComponent,
     RentalComponent,
     RentalDetailComponent,
+    IsUserDirective,
   ],
   imports: [
     BrowserModule,
