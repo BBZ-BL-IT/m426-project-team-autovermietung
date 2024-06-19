@@ -3,17 +3,22 @@ import { environment } from '../../environments/environment';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Rental } from '../data/rental';
+import { User } from '../data/user';
 
 @Injectable({
     providedIn: 'root'
   })
   export class RentalService {
 
+
     readonly backendUrl = '/api/rental';
 
 
+
     constructor(private http: HttpClient) {
+
     }
+
 
     public getList(): Observable<Rental[]> {
       return this.http.get<Rental[]>(environment.apiUrl + this.backendUrl);
@@ -34,6 +39,13 @@ import { Rental } from '../data/rental';
     public delete(id: number): Observable<HttpResponse<string>> {
       return this.http.delete<string>(environment.apiUrl + this.backendUrl + `/${id}`, {observe: 'response'});
     }
+
+
+    public getRentalsByUserId(userId: number): Observable<Rental[]> {
+      return this.http.get<Rental[]>(`${environment.apiUrl}${this.backendUrl}/user/${userId}`);
+    }
+
+
   }
 
 
