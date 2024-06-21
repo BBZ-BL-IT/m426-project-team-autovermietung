@@ -5,19 +5,24 @@
       <form [formGroup]="objForm" (ngSubmit)="save(objForm.value)">
         <div class="form-elements">
 
-          <div formGroupName="car">
-            <mat-form-field>
-              <mat-label>Auto</mat-label>
-              <input formControlName="licensePlate" matInput maxlength="20" required>
-            </mat-form-field>
-          </div>
+          <mat-form-field>
+            <mat-label>User</mat-label>
+            <mat-select formControlName="user" required>
+              <mat-option *ngFor="let user of users" [value]="user.id">
+                {{user.username}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-          <div formGroupName="user">
-            <mat-form-field>
-              <mat-label>Benutzer</mat-label>
-              <input formControlName="username" matInput maxlength="20" required>
-            </mat-form-field>
-          </div>
+
+          <mat-form-field>
+            <mat-label>Car</mat-label>
+            <mat-select formControlName="car" required>
+              <mat-option *ngFor="let car of cars" [value]="car.id">
+                {{car.licensePlate}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
           <div>
             <mat-form-field>
@@ -40,12 +45,7 @@
             </mat-form-field>
           </div>
 
-          <div>
-            <mat-form-field>
-              <mat-label>Status</mat-label>
-              <input formControlName="status" matInput maxlength="20" required>
-            </mat-form-field>
-          </div>
+
 
         </div>
         <button [disabled]="!objForm.valid" class="save-button" mat-raised-button style="width: 200px">

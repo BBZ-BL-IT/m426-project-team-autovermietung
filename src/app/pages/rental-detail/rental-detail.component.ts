@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormControl, UntypedFormBuilder, Validators } from '@angular/forms';
-import { Rental } from '../../data/rental';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router, ActivatedRoute } from '@angular/router';
-import { RentalService } from '../../services/rental.service';
-import { Vehicle } from '../../data/vehicle';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Rental } from '../../data/rental';
 import { User } from '../../data/user';
+import { Vehicle } from '../../data/vehicle';
+import { RentalService } from '../../services/rental.service';
+import { UserService } from '../../services/user.service';
+import { VehicleService } from '../../services/vehicle.service';
 
 @Component({
   selector: 'app-rental-detail',
@@ -13,6 +15,8 @@ import { User } from '../../data/user';
   styleUrls: ['./rental-detail.component.css']
 })
 export class RentalDetailComponent implements OnInit {
+  users: User[] = [];
+  cars: Vehicle[] = [];
 
   rental: Rental = new Rental();
   objForm: UntypedFormGroup;
@@ -22,15 +26,13 @@ export class RentalDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
     private formBuilder: UntypedFormBuilder,
-    private rentalService: RentalService
+    private rentalService: RentalService,
+    private userService: UserService,
+    private vehicleService: VehicleService
   ) {
     this.objForm = this.formBuilder.group({
-      car: this.formBuilder.group({
-        licensePlate: ['', Validators.required],
-      }),
-      user: this.formBuilder.group({
-        username: ['', Validators.required],
-      }),
+      car: ['', Validators.required],
+      user: ['', Validators.required],
       rentalStart: ['', Validators.required],
       rentalEnd: ['', Validators.required],
       totalCost: ['', Validators.required],
@@ -45,19 +47,18 @@ export class RentalDetailComponent implements OnInit {
         next: (obj) => {
           console.log('Rental data fetched:', obj);
 
-          obj.car = obj.car || new Vehicle();
-          obj.user = obj.user || new User();
+          obj.car = obj.car ?? new Vehicle();
+          obj.user = obj.user ?? new User();
           this.rental = obj;
-          this.objForm.patchValue({
-            car: { licensePlate: obj.car.licensePlate || '' },
-            user: { username: obj.user.username || '' },
-            user_id: obj.user_id,
-            car_id: obj.car_id,
+          this.objForm.setValue({
+            car: obj.car?.id,
+            user: obj.user?.id,
             rentalStart: obj.rentalStart,
             rentalEnd: obj.rentalEnd,
             totalCost: obj.totalCost,
-            status: obj.status
+            status: obj.status,
           });
+
         },
         error: (err) => {
           console.error('Error loading rental data:', err);
@@ -65,6 +66,17 @@ export class RentalDetailComponent implements OnInit {
         }
       });
     }
+
+    this.userService.getList().subscribe({
+      next: (users) => {
+        this.users = users;
+      }
+    });
+    this.vehicleService.getList().subscribe({
+      next: (vehicles) => {
+        this.cars = vehicles;
+      }
+    });
   }
 
   async back() {
@@ -72,14 +84,16 @@ export class RentalDetailComponent implements OnInit {
   }
 
   async save(formData: any) {
-
-
-    this.rental = Object.assign(formData);
+    console.log(formData);
+    var rental = Object.assign(formData);
+    rental.id = this.rental.id ?? 0;
+    rental.car = this.cars.find((car) => car.id === formData.car) ?? new Vehicle();
+    rental.user = this.users.find((user) => user.id === formData.user) ?? new User();
 
     console.log(this.rental)
 
     if (this.rental.id !== 0) {
-      this.rentalService.update(this.rental).subscribe({
+      this.rentalService.update(rental).subscribe({
         next: () => {
           this.snackBar.open("Item saved!", "Close", { duration: 5000 });
           this.back();

@@ -3,8 +3,8 @@ import { User } from './user';
 
 export class Rental{
   public id!: number;
-  public car_id!: number;
-  public user_id!: number;
+  public carId!: number;
+  public userId!: number;
   public rentalStart!: Date;
   public rentalEnd!: Date;
   public totalCost!: number;
