@@ -18,6 +18,8 @@ export class RentalDetailComponent implements OnInit {
   users: User[] = [];
   cars: Vehicle[] = [];
 
+  data: Vehicle[] = [];
+
   rental: Rental = new Rental();
   objForm: UntypedFormGroup;
 
@@ -104,5 +106,17 @@ export class RentalDetailComponent implements OnInit {
       });
 
     }
+  }
+
+  refresh(formData: any){
+    const rentalStart = formData.rentalStart;
+    const rentalEnd = formData.rentalEnd;
+
+    const formattedRentalStart = new Date(rentalStart).toISOString().split('T')[0];
+    const formattedRentalEnd = new Date(rentalEnd).toISOString().split('T')[0];
+
+    this.vehicleService.getByDate(formattedRentalStart, formattedRentalEnd).subscribe(cars =>{
+      this.data = cars;
+    });
   }
 }

@@ -24,19 +24,25 @@
             </mat-select>
           </mat-form-field>
 
-          <div>
-            <mat-form-field>
-              <mat-label>Start Datum</mat-label>
-              <input formControlName="rentalStart" matInput type="date" required>
-            </mat-form-field>
-          </div>
 
-          <div>
-            <mat-form-field>
-              <mat-label>End Datum</mat-label>
-              <input formControlName="rentalEnd" matInput type="date" required>
+            <mat-form-field class="date-picker-filter-one">
+                <mat-label>Von Datum</mat-label>
+                <input formControlName="rentalStart" required matInput [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker  ></mat-datepicker>
             </mat-form-field>
-          </div>
+            <mat-form-field class="date-picker-filter-two">
+                <mat-label>Bis Datum</mat-label>
+                <input formControlName="rentalEnd" required matInput [matDatepicker]="picker2">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2 ></mat-datepicker>
+            </mat-form-field>
+
+
+
+
 
           <div>
             <mat-form-field>
