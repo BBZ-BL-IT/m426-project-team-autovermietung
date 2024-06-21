@@ -7,6 +7,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { async } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../data/user';
+import { VehicleService } from '../../services/vehicle.service';
+import { Vehicle } from '../../data/vehicle';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-rental',
@@ -16,7 +19,12 @@ import { User } from '../../data/user';
 export class RentalComponent implements OnInit {
   private user!: User | null;
 
-  constructor(private rentalService: RentalService, private authService: AuthService, private router: Router, private dialog: MatDialog) { }
+  public objForm = new UntypedFormGroup({
+    rentalStart: new UntypedFormControl(Date),
+    rentalEnd: new UntypedFormControl(Date),
+  });
+
+  constructor(private rentalService: RentalService, private authService: AuthService, private router: Router, private dialog: MatDialog,    private vehicleService: VehicleService) { }
 
   ngOnInit(): void {
     this.authService.user.subscribe(user => {
@@ -60,6 +68,19 @@ export class RentalComponent implements OnInit {
         this.data = rentals;
       });
     }
+  }
+
+
+  refresh(formData: any){
+    const rentalStart = formData.rentalStart;
+    const rentalEnd = formData.rentalEnd;
+
+    const formattedRentalStart = new Date(rentalStart).toISOString().split('T')[0];
+    const formattedRentalEnd = new Date(rentalEnd).toISOString().split('T')[0];
+
+    this.rentalService.getByDate(formattedRentalStart, formattedRentalEnd).subscribe(rentals =>{
+      this.data =  rentals;
+    });
   }
 
 }

@@ -75,14 +75,14 @@ import { IsUserDirective } from './directives/is.user.directive';
     MatSnackBarModule,
     MatExpansionModule,
     MatDatepickerModule,
-    MatNativeDateModule 
+    MatNativeDateModule
 
   ],
   providers: [
     provideAnimationsAsync(),
     CookieService,
     MatDatepickerModule
-    
+
   ],
   bootstrap: [AppComponent]
 })

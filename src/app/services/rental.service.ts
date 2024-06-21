@@ -45,6 +45,11 @@ import { User } from '../data/user';
       return this.http.get<Rental[]>(`${environment.apiUrl}${this.backendUrl}/user/${userId}`);
     }
 
+    public getByDate(rentalStart: string, rentalEnd: string): Observable<Rental[]> {
+      return this.http.get<Rental[]>(environment.apiUrl + this.backendUrl + `/byDate` + `?rentalStart=${rentalStart}&rentalEnd=${rentalEnd}`);
+    }
+
+
 
   }
 
