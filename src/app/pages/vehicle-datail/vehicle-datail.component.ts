@@ -114,7 +114,7 @@ export class VehicleDatailComponent implements OnInit {
 
     rental.rentalStart = formData.vonDatum;
     rental.rentalEnd = formData.bisDatum;
-    rental.car_id = this.vehicle.id;
+    rental.carId = this.vehicle.id;
     rental.car = this.vehicle;
 
     let diff = Math.abs(
@@ -126,7 +126,7 @@ export class VehicleDatailComponent implements OnInit {
 
     rental.status = 'reserved';
     rental.user = this.user ?? new User();
-    rental.user_id = this.user?.id ?? 0;
+    rental.userId = this.user?.id ?? 0;
 
     let isAvailable: boolean = false;
     const formattedVonDatum = new Date(formData.vonDatum)
@@ -137,7 +137,7 @@ export class VehicleDatailComponent implements OnInit {
       .split('T')[0];
 
     this.vehicleService
-      .isCarAvalible(rental.car_id, formattedVonDatum, formattedBisDatum)
+      .isCarAvalible(rental.carId, formattedVonDatum, formattedBisDatum)
       .subscribe((isAvailableReturn) => {
         isAvailable = isAvailableReturn;
 
