@@ -8,7 +8,7 @@ export class Rental{
   public rentalStart!: Date;
   public rentalEnd!: Date;
   public totalCost!: number;
-  public status?: '';
+  public status?: string;
   public car: Vehicle = new Vehicle();
   public user: User = new User();
 }

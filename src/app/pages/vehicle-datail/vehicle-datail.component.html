@@ -71,8 +71,41 @@
                 {{ 'Save' }}
             </button>
         </div>
-
       </form>
+      <h1 class="information-text-reservation" *appIsLogin="false">You need to be logged in to make reservations</h1>
+      <div *appIsLogin="true" class="reservation-container">
+        <mat-expansion-panel *ngIf="isNotNew"  hideToggle class="mat-expansion-panel">
+            <mat-expansion-panel-header>
+              <mat-panel-title> Reservate            
+                <mat-icon class="mat-icon">
+                    arrow_drop_down
+              </mat-icon>
+            </mat-panel-title>
+            </mat-expansion-panel-header>
+          <form *ngIf="isNotNew" [formGroup]="objFormReservation!" (ngSubmit)="saveReservation(objFormReservation.value)">
+            <div class="form-container">
+                <mat-form-field class="date-picker-filter-one">
+                    <mat-label>Von Datum</mat-label>
+                    <input formControlName="vonDatum" required matInput [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker  ></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="date-picker-filter-two" >
+                    <mat-label>Bis Datum</mat-label>
+                    <input formControlName="bisDatum" required matInput [matDatepicker]="picker2">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 ></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <button [disabled]="!objFormReservation.valid" color="primary" mat-raised-button class="button-filter-refresh">
+                {{ 'Reservate' }}
+            </button>       
+          </form>
+        </mat-expansion-panel>
+      </div>
+      
     </div>
   </div>
 </body>

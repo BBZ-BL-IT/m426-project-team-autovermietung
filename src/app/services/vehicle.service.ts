@@ -27,6 +27,10 @@ import { Vehicle } from '../data/vehicle';
       return this.http.get<Vehicle[]>(environment.apiUrl + this.backendUrl + `/byDate` + `?startDate=${startDate}&endDate=${endDate}`);
     }
 
+    public isCarAvalible(id: number, startDate: string, endDate: string): Observable<boolean> {
+      return this.http.get<boolean>(environment.apiUrl + this.backendUrl + `/byDate/${id}` + `?startDate=${startDate}&endDate=${endDate}`);
+    }
+
     public update(cars: Vehicle): Observable<Vehicle> {
       return this.http.put<Vehicle>(environment.apiUrl + this.backendUrl + `/${cars.id}`, cars);
     }
