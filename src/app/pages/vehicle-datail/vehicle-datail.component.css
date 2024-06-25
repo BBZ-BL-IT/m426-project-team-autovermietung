@@ -55,3 +55,25 @@ button{
   color: black;
 }
 
+.date-picker-filter-two{
+  margin-left: 30px;
+}
+
+.mat-expansion-panel{
+  width: 100%;
+}
+
+.date-picker-filter-two{
+  margin-right: 300px;
+}
+
+.button-filter-refresh{
+  background-color: white; 
+  color: black; 
+  width: 200px;
+}
+
+.information-text-reservation{
+  text-align: center;
+  width: 100%;
+}

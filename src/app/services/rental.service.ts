@@ -23,12 +23,12 @@ import { Rental } from '../data/rental';
       return this.http.get<Rental>(environment.apiUrl + this.backendUrl + `/${id}`);
     }
 
-    public update(cars: Rental): Observable<Rental> {
-      return this.http.put<Rental>(environment.apiUrl + this.backendUrl + `/${cars.id}`, cars);
+    public update(rental: Rental): Observable<Rental> {
+      return this.http.put<Rental>(environment.apiUrl + this.backendUrl + `/${rental.id}`, rental);
     }
 
-    public save(cars: Rental): Observable<Rental> {
-      return this.http.post<Rental>(environment.apiUrl + this.backendUrl, cars);
+    public save(rental: Rental): Observable<Rental> {
+      return this.http.post<Rental>(environment.apiUrl + this.backendUrl, rental);
     }
 
     public delete(id: number): Observable<HttpResponse<string>> {
