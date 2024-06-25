@@ -122,7 +122,7 @@ export class VehicleDatailComponent implements OnInit {
     );
     let diffDays = Math.ceil(diff / (1000 * 3600 * 24));
 
-    rental.totalCost = diffDays + 1 * this.vehicle.rentalPrice;
+    rental.totalCost = (diffDays + 1) * this.vehicle.rentalPrice;
 
     rental.status = 'reserved';
     rental.user = this.user ?? new User();
